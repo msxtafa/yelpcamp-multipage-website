@@ -61,6 +61,7 @@ function initCard(name,desc,img){
 
     let cardName = document.createElement("h2");
     cardName.textContent = name;
+    cardName.classList.add("placename");
     cardName.setAttribute("data-name", name);
 
     let cardDesc = document.createElement("p");
@@ -84,12 +85,11 @@ function initCard(name,desc,img){
 createCards();
 
 
-
+let searchInput = document.querySelector("[data-search]");
+let cards = document.querySelectorAll(".card");
 
 function filterCards(){
-    let searchInput = document.querySelector("[data-search]");
-    let cards = document.querySelectorAll(".card");
-
+ 
     searchInput.addEventListener("input", function(e){
     value = e.target.value.toLowerCase();
     
@@ -102,5 +102,6 @@ function filterCards(){
 }
 
 filterCards();
+
 
 
