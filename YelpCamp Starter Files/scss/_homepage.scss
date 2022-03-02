@@ -1,183 +1,77 @@
 
-// project info
+.homepage{
 
-.info{
-padding: 0.5em 0;
-
-a{
-color: blue;
-:visited{
-color: blue;
-}
-}
-
-}
-
-//nav
-
-nav{
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 3em 0;
-
->*{
-align-items: center;
-}
-
-#hamburger{
-background-color: rgba(128, 128, 128, 0.062);
-padding: 0.2em;
-border-radius: 2px;
-}
-
-.tablet-nav{
-display: none;
-}
-
-}
-
-
-// header
-.hero{
-background-color: rgba(128, 128, 128, 0.082);
-padding: 1.5em;
-border-radius: 2px;
-
-p{
-padding: 1em 0;
+header{
+        .hero{
+            background-color: var(--bg-gray);
+            padding: 1.5em;
+            border-radius: var(--br);
+            
+            p{
+            padding: 1em 0;
+            }
+            
+            
+            .search-container{
+                display: flex;
+                flex-direction: column;
+                
+                >div{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+                }
+                
+                
+                input{
+                padding: 0.4em;
+                font-size: var(--fs-button);
+                border: 1px solid var(--border-clr);
+                border-radius: var(--br);
+                }
+                   
+            }
+            
+            
+            }
 }
 
-
-.search-container{
-    display: flex;
-    flex-direction: column;
-    
-    >div{
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-    }
-    
-    
-    input{
-    padding: 0.4em;
-    font-size: var(--fs-button);
-    border: 1px solid black;
-    border-radius: 5px;
-    }
-    
-    a{
-    color: var(--fc-primary);
-    }
-    
-}
-
-
-}
-
-//main
-main{
+.card-container{
 padding: 2em 0;
 display: grid;
 grid-gap:3em;
-grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+grid-template-columns: repeat(auto-fill, minmax(300px, 400px));
 justify-content: center;
 
-
->div{
-border: 1px solid rgba(128, 128, 128, 0.397);
-border-radius: 5px;
-padding: 0.8em;
-
-margin: 0 auto;
-
-img{
-border-radius: 5px;
-width: 100%;
-
 }
-
-button{
-width: 100%;
-margin: 0.2em 0;
-}
-
-button:hover{
-background-color: var(--bg-primary);
-color: white;
-}
-
-
-
-:nth-child(2){
-padding-top: 1em;
-padding-bottom: 0.5em;
-}
-
-:nth-child(3){
-padding-bottom: 1em;
-}
-
-}
-
-}
-
-
-//footer
-footer{
-padding-top: 2em;
-padding-bottom: 5em;
-}
-
 
 
 @media (min-width: $tablet){
 
-
-//nav
- nav{
-        .tablet-nav{
-            display: flex;
-            
-            p{
-            padding-right: 1.5em;
-            }
-            
+header{
+    .hero{
+        padding: 5em;
+        
+              .search-container{
+        
+                    >div{
+                    display: inline;
+                    flex-direction: row;
+                    }
+        
+                    button{
+                    width: 17%;
+                    }
+                }
+        
         }
-
-        #hamburger{
-        display: none;
-        }
-
 }
 
-
-//header
-.hero{
-padding: 5em;
-
-      .search-container{
-
-            >div{
-            display: inline;
-            flex-direction: row;
-            }
-
-            button{
-            width: 17%;
-            }
-        }
-
-}
-
-//main
-main{
+.card-container{
 justify-content: space-between;
-grid-template-columns: repeat(auto-fit, minmax(300px, 363px));
+grid-template-columns: repeat(auto-fill, minmax(300px, 363px));
 }
 
-    
-
+}
 
 }

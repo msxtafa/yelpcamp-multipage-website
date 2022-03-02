@@ -17,11 +17,13 @@ $desktop:1920px;
 --bg-accent:black;
 --bg-white:white;
 --bg-black:black;
+--bg-gray:rgba(243, 236, 236, 0.5);
 
 //font-color
 --fc-primary:black;
 --fc-secondary:rgba(211, 211, 211, 0.733);
---fc-accent:white;
+--fc-light-gray:rgba(141, 140, 140, 0.699);
+--fc-accent:rgba(0, 225, 255, 0.808);
 --fc-black:black;
 --fc-white:white;
 
@@ -31,6 +33,7 @@ $desktop:1920px;
 --fs-sub-heading:1rem;// sub-heading
 --fs-paragraph:1rem;// paragraph
 --fs-button:1rem;// button
+--fs-custom:1.5rem; // custom
 
 // font-weight
 --fw-100:200;
@@ -50,15 +53,21 @@ $desktop:1920px;
 
 --ff-primary:'Bai Jamjuree', sans-serif;
 --ff-secondary:'Josefin Sans', sans-serif;
+
+//border
+--br:5px;
+--border-clr:rgba(128, 128, 128, 0.397);  
+
 }
 
 
 @media (min-width:$tablet){
     :root{
         //font-sizes
-        --fs-heading:3.6rem;
+        --fs-heading:2.3rem;
         --fs-sub-heading:1rem;
         --fs-paragraph:1.1rem;
+        --fs-custom:1.8rem;
         --fs-button:1.3rem;
         }
 }
@@ -79,7 +88,12 @@ font-size: var(--fs-sub-heading);
 font-weight: var(--fw-800);
 }
 
-    
+h3{
+font-size: var(--fs-custom);
+font-weight: var(--fw-800);
+}
+
+
 p{
 font-size: var(--fs-paragraph);
 font-weight: var(--fw-500);
@@ -88,8 +102,64 @@ font-weight: var(--fw-500);
 button{
 font-size: var(--fs-button);
 font-weight: var(--fw-800);
+padding: 1em;
 }
-    
+
+form{
+    input{
+        background-color: var(--bg-gray);
+        border: none;
+        border-radius: var(--br);
+        font-size: var(--fs-paragraph);
+        font-weight: var(--fw-500);
+        color: var(--fc-light-gray);
+        padding: 1em;
+        
+        }
+        
+        input::placeholder{
+        font-size: var(--fs-button);
+        color: var(--fc-light-gray);
+        }
+
+        button{
+        padding: 1em;
+        }
+
+}
+
+
+
+
+a{
+    color: var(--fc-accent);
+    :visited{
+    color: var(--fc-accent);
+    }
+}
+
+a.default{
+    color: var(--fc-primary);
+    :visited{
+    color: var(--fc-primary);
+}
+}
+
+a.no-decoration{
+text-decoration: none;
+}
+
+a.no-decoration:hover{
+text-decoration: underline;
+}
+
+footer{
+padding-top: 2em;
+padding-bottom: 5em;
+}
+
+
+
 
 /************************************************************/
 /********************  Utility-classes   ********************/
@@ -109,6 +179,7 @@ font-weight: var(--fw-800);
 .padding-tb{padding: 2em 0em 2em 0em;}
 .padding-lr{padding: 0em 1.5em 0em 1.5em;}
 .line-height-1{line-height: 2.2;}
+#info{padding: 1em;}
 
 
 // background-colors
@@ -157,9 +228,9 @@ font-weight: var(--fw-800);
 
 .btn-primary{
 background-color: var(--bg-black);
-color: white;
+color: var(--fc-white);
+border-radius: var(--br);
 padding: 0.4em;
-border-radius: 5px;
 }
 
 .btn-primary:hover{
@@ -171,12 +242,80 @@ outline: 1px solid var(--bg-black);
 .btn-secondary{
 background-color: var(--bg-white);
 color: var(--fc-black);
+border-radius: var(--br);
+border: 1px solid var(--border-clr);
 padding: 0.4em;
-border-radius: 5px;
-border: 1px solid rgba(128, 128, 128, 0.404);
 }
 
 .btn-secondary:hover{
 background-color: var(--bg-primary);
-color: white;
+color: var(--fc-white);
+}
+
+
+
+.card{
+    border: 1px solid var(--border-clr);
+    border-radius: var(--br);
+    padding: 0.7em;
+    
+    h2 , p{
+    margin: 0.5em;
+    }
+    
+    img{
+    border-radius: var(--br);
+    width: 100%;
+    }
+    
+    button{
+    width: 100%;
+    margin: 0.2em 0;
+    }
+    
+}
+
+// NAV
+nav.main-nav{
+    
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3em 0;
+        
+        >*{
+        align-items: center;
+        }
+        
+        #hamburger{
+        background-color: var(--bg-gray);
+        padding: 0.2em;
+        border-radius: var(--br);
+        }
+        
+        .tablet-nav{
+        display: none;
+        }
+        
+}
+
+
+@media (min-width: $tablet){
+
+    
+     nav.main-nav{
+            .tablet-nav{
+                display: flex;
+                
+                p{
+                padding-right: 1.5em;
+                }
+                
+            }
+    
+            #hamburger{
+            display: none;
+            }
+    
+    }
 }
